@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Custom Color Palette */
+  --color-primary: #1b1423;
+  --color-secondary: #8B5CF6;
+  --color-accent: #A855F7;
+  --color-purple-light: #C084FC;
+  --color-purple-dark: #7C3AED;
+  --color-green-bright: #10B981;
+  --color-white: #FFFFFF;
+  --color-gray-light: #F3F4F6;
+  --color-gray-medium: #9CA3AF;
+  --color-gray-dark: #374151;
+  --color-gray-darker: #1F2937;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-primary);
+    --foreground: var(--color-white);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fade In Section Animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
