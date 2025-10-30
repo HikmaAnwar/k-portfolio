@@ -1,38 +1,40 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-const Intro = () => {
+const Intro = ({ title = "I'm a Software Engineer.", typingSpeed = 50 }) => {
+  const fullTitle = title;
+  const [typedTitle, setTypedTitle] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    let idx = 0;
+    setTypedTitle("");
+    const typeInterval = setInterval(() => {
+      setTypedTitle(fullTitle.slice(0, idx + 1));
+      idx += 1;
+      if (idx === fullTitle.length) {
+        clearInterval(typeInterval);
+      }
+    }, typingSpeed);
+
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(typeInterval);
+      clearInterval(cursorInterval);
+    };
+  }, [fullTitle, typingSpeed]);
   return (
     <section id="home" className="w-full flex flex-col items-center justify-center gap-12 py-16">
-      {/* Top Section: Profile Avatar and Designer Quote */}
+      {/* Top Section: Image and Designer Quote */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
-        {/* Profile Avatar with Laptop */}
-        <div className="relative">
-          <div className="relative w-80 h-80">
-            {/* Avatar */}
-            <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
-              <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                <span className="text-white text-8xl">👨‍💻</span>
-              </div>
-            </div>
-            
-            
-            
-            {/* Speech Bubble */}
-            <div className="absolute -top-8 -right-8 bg-white rounded-2xl px-4 py-2 shadow-lg">
-              <div className="relative">
-                <div className="text-sm font-semibold text-gray-800">
-                  Hello! I Am <span className="text-purple-600 font-bold">Ibrahim Memon</span>
-                </div>
-                {/* Speech bubble arrow */}
-                <div className="absolute -bottom-2 left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
-              </div>
-            </div>
-          </div>
-          {/* Glow effect */}
-          <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-xl animate-pulse"></div>
+        {/* Profile Image */}
+        <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
+          <Image src="/assets/kirubel.jpg" alt="Profile" fill className="object-cover" />
         </div>
 
                  {/* Designer Quote */}
@@ -62,12 +64,13 @@ const Intro = () => {
         {/* Professional Title */}
         <div className="space-y-4">
           <h1 className="text-4xl lg:text-5xl font-bold text-white">
-            I'm a Software Engineer.|
+            <span aria-label="typing-intro">{typedTitle}</span>
+            <span className="ml-1" aria-hidden="true">{showCursor ? "|" : "\u00A0"}</span>
           </h1>
           
           <p className="text-lg text-white">
-            Currently, I'm a Software Engineer at{" "}
-            <span className="text-blue-500 font-semibold">Facebook</span>
+            Currently, I'm a Full Stack Developer at{" "}
+            <span className="text-purple-400 font-semibold">Matrix Technology PLC.</span>
           </p>
         </div>
 

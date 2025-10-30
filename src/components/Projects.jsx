@@ -9,15 +9,23 @@ const Projects = () => {
       title: "E-Commerce Platform",
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🛒",
-      layout: "text-left"
+      image: "/window.svg"
     },
     {
       id: 2,
       title: "Healthcare Management System",
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🏥",
-      layout: "text-right"
+      image: "/next.svg"
+    },
+    {
+      id: 3,
+      title: "Healthcare Management System",
+      description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
+      mockup: "🏥",
+      image: "/next.svg"
     }
+
   ];
 
   return (
@@ -25,73 +33,100 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Section Title */}
         <div className="text-center">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
-            Example Projects
+          <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4 text-left">
+            Projects
           </h2>
         </div>
 
         {/* Projects */}
         {projects.map((project, index) => (
           <div key={project.id} className="w-full">
-            {project.layout === "text-left" ? (
-              // Text on left, Mockup on right
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Project Description */}
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-white">
+            {index % 2 === 0 ? (
+              // Text on left (overlapping) , Mockup on right
+              <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Project Description Card (overlaps mockup) */}
+                <div className="space-y-3 lg:pr-8">
+                  <h3
+                    className="text-3xl font-semibold pb-18 relative z-30 lg:-mt-10"
+                    style={{ color: '#A855F7' }}
+                  >
                     {project.title}
                   </h3>
-                  <div className="bg-gray-800/50 border border-purple-500/20 rounded-xl p-6 backdrop-blur-sm">
-                    <p className="text-gray-300 leading-relaxed">
+                  <div
+                    className="rounded-2xl p-5 lg:max-w-xl lg:w-[560px] border border-white/10 shadow-xl lg:translate-x-4 lg:-translate-y-1 relative z-20 overflow-hidden"
+                    style={{ minHeight: '140px' }}
+                  >
+                    {/* background layer flipped so the light edge is on the right (overlap side) */}
+                    <div
+                      className="pointer-events-none absolute inset-0 -z-10"
+                      style={{
+                        backgroundImage: "url('/assets/Rectangle 1.png')",
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        transform: 'scaleX(-1)'
+                      }}
+                    />
+                    <p className="text-gray-200 leading-relaxed text-sm">
                       {project.description}
                     </p>
-                  </div>
-                  {/* Navigation Dots */}
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
-                    <div className="w-3 h-3 bg-purple-400/50 rounded-full"></div>
                   </div>
                 </div>
 
                 {/* Project Mockup */}
-                <div className="relative">
-                  <div className="bg-white rounded-lg shadow-2xl p-8 min-h-[400px] flex items-center justify-center">
-                    <div className="text-8xl">
-                      {project.mockup}
+                <div className="relative lg:-ml-4">
+                  <div className="relative z-10 rounded-2xl shadow-2xl p-4 min-h-[360px] bg-[#1b0f2a] border border-white/5 lg:w-[110%] lg:-translate-x-2">
+                    <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center">
+                      {project.image ? (
+                        <img src={project.image} alt={`${project.title} mockup`} className="w-full h-full object-contain" />
+                      ) : (
+                        <div className="text-8xl">{project.mockup}</div>
+                      )}
                     </div>
                   </div>
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-purple-500/10 rounded-lg blur-xl"></div>
                 </div>
               </div>
             ) : (
               // Mockup on left, Text on right
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Project Mockup */}
-                <div className="relative order-2 lg:order-1">
-                  <div className="bg-white rounded-lg shadow-2xl p-8 min-h-[400px] flex items-center justify-center">
-                    <div className="text-8xl">
-                      {project.mockup}
+                <div className="relative order-2 lg:order-1 lg:-mr-14">
+                  <div className="relative z-10 rounded-2xl shadow-2xl p-4 min-h-[360px] bg-[#1b0f2a] border border-white/5">
+                    <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center">
+                      {project.image ? (
+                        <img src={project.image} alt={`${project.title} mockup`} className="w-full h-full object-contain" />
+                      ) : (
+                        <div className="text-8xl">{project.mockup}</div>
+                      )}
                     </div>
                   </div>
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-purple-500/10 rounded-lg blur-xl"></div>
                 </div>
 
-                {/* Project Description */}
-                <div className="space-y-6 order-1 lg:order-2">
-                  <h3 className="text-2xl font-bold text-white">
+                {/* Project Description Card (overlaps mockup) */}
+                <div className="space-y-3 order-1 lg:order-2 lg:pl-8">
+                  <h3
+                    className="text-3xl font-semibold pb-18 relative z-30 lg:-mt-10"
+                    style={{ color: '#A855F7' }}
+                  >
                     {project.title}
                   </h3>
-                  <div className="bg-gray-800/50 border border-purple-500/20 rounded-xl p-6 backdrop-blur-sm">
-                    <p className="text-gray-300 leading-relaxed">
+                  <div
+                    className="rounded-2xl p-5 lg:max-w-xl lg:w-[560px] border border-white/10 shadow-xl lg:-translate-x-16 lg:-translate-y-3 relative z-20 overflow-hidden"
+                    style={{ minHeight: '140px' }}
+                  >
+                    {/* background layer normal so the light edge stays on the left */}
+                    <div
+                      className="pointer-events-none absolute inset-0 -z-10"
+                      style={{
+                        backgroundImage: "url('/assets/Rectangle 1.png')",
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center'
+                      }}
+                    />
+                    <p className="text-gray-200 leading-relaxed text-sm">
                       {project.description}
                     </p>
-                  </div>
-                  {/* Navigation Dots */}
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
-                    <div className="w-3 h-3 bg-purple-400/50 rounded-full"></div>
                   </div>
                 </div>
               </div>
