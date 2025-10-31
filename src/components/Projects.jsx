@@ -9,21 +9,24 @@ const Projects = () => {
       title: "E-Commerce Platform",
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🛒",
-      image: "/window.svg"
+      image: "/window.svg",
+      liveLink: "https://example.com"
     },
     {
       id: 2,
       title: "Healthcare Management System",
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🏥",
-      image: "/next.svg"
+      image: "/next.svg",
+      liveLink: "https://example.com"
     },
     {
       id: 3,
       title: "Healthcare Management System",
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🏥",
-      image: "/next.svg"
+      image: "/next.svg",
+      liveLink: "https://example.com"
     }
 
   ];
@@ -71,6 +74,22 @@ const Projects = () => {
                       {project.description}
                     </p>
                   </div>
+                  {/* Live Link Icon */}
+                  {project.liveLink && (
+                    <div className="mt-3 flex justify-start pl-4">
+                      <a 
+                        href={project.liveLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Open live project"
+                        className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 {/* Project Mockup */}
@@ -110,23 +129,41 @@ const Projects = () => {
                   >
                     {project.title}
                   </h3>
-                  <div
-                    className="rounded-2xl p-5 lg:max-w-xl lg:w-[560px] border border-white/10 shadow-xl lg:-translate-x-16 lg:-translate-y-3 relative z-20 overflow-hidden"
-                    style={{ minHeight: '140px' }}
-                  >
-                    {/* background layer normal so the light edge stays on the left */}
+                  <div className="relative lg:max-w-xl lg:w-[560px]">
                     <div
-                      className="pointer-events-none absolute inset-0 -z-10"
-                      style={{
-                        backgroundImage: "url('/assets/Rectangle 1.png')",
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center'
-                      }}
-                    />
-                    <p className="text-gray-200 leading-relaxed text-sm">
-                      {project.description}
-                    </p>
+                      className="rounded-2xl p-5 w-full border border-white/10 shadow-xl lg:-translate-x-16 lg:-translate-y-3 relative z-20 overflow-hidden"
+                      style={{ minHeight: '140px' }}
+                    >
+                      {/* background layer normal so the light edge stays on the left */}
+                      <div
+                        className="pointer-events-none absolute inset-0 -z-10"
+                        style={{
+                          backgroundImage: "url('/assets/Rectangle 1.png')",
+                          backgroundSize: 'cover',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'center'
+                        }}
+                      />
+                      <p className="text-gray-200 leading-relaxed text-sm">
+                        {project.description}
+                      </p>
+                    </div>
+                    {/* Live Link Icon - positioned below card, aligned to right edge */}
+                    {project.liveLink && (
+                      <div className="mt-3 flex justify-end lg:justify-end pr-16">
+                        <a 
+                          href={project.liveLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          aria-label="Open live project"
+                          className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -29,12 +29,27 @@ const Intro = ({ title = "I'm a Software Engineer.", typingSpeed = 50 }) => {
     };
   }, [fullTitle, typingSpeed]);
   return (
-    <section id="home" className="w-full flex flex-col items-center justify-center gap-12 py-16">
+    <section 
+      id="home" 
+      className="w-screen h-screen flex flex-col items-center justify-center gap-12 relative overflow-hidden"
+      style={{
+        backgroundImage: "url('/assets/hero-background.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        marginTop: 0
+      }}
+    >
+      {/* Light Purplish Overlay */}
+      <div className="absolute inset-0 bg-purple-900/15 z-0"></div>
+      
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col items-center justify-center gap-12 w-full">
       {/* Top Section: Image and Designer Quote */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Profile Image */}
         <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
-          <Image src="/assets/kirubel.jpg" alt="Profile" fill className="object-cover" />
+          <Image src="/assets/profile.jpg" alt="Profile" fill className="object-cover" />
         </div>
 
                  {/* Designer Quote */}
@@ -47,10 +62,7 @@ const Intro = ({ title = "I'm a Software Engineer.", typingSpeed = 50 }) => {
           </p>
           <p className="text-2xl text-white font-medium">
             by its{" "}
-            <span className="relative">
-              <span className="text-purple-400 font-bold">cover</span>
-              <div className="absolute -inset-1 border border-white rounded-full opacity-50"></div>
-            </span>
+            <span className="text-purple-400 font-bold">cover</span>
             ..."
           </p>
           <p className="text-sm text-gray-400 mt-2">
@@ -82,6 +94,7 @@ const Intro = ({ title = "I'm a Software Engineer.", typingSpeed = 50 }) => {
               between user needs and business goals.
             </p>
          </div>
+      </div>
       </div>
     </section>
   );

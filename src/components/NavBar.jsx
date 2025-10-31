@@ -43,7 +43,7 @@ const NavBar = () => {
   const linkActive = "text-colors-greenBright";
 
   return (
-    <nav className="fixed top-0 z-50 w-full h-14 text-sm font-bold text-colors-slate border-b border-colors-dark bg-colors-dark">
+    <nav className="fixed top-0 z-50 w-full h-14 text-sm font-bold text-colors-slate bg-colors-dark backdrop-blur-sm bg-opacity-100">
       <div className="max-w-screen-lg mx-auto w-full flex items-center justify-between px-2 py-4">
       {/* Branding: Stylized K + Name (leftmost) */}
       <Link href="#home" className="flex items-center space-x-3 no-underline">
@@ -137,7 +137,7 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-                 <div className="absolute top-full left-0 right-0 bg-colors-dark px-6 py-4 shadow-lg md:hidden text-colors-slate">
+                 <div className="absolute top-full left-0 right-0 bg-colors-dark backdrop-blur-sm bg-opacity-100 px-6 py-4 shadow-lg md:hidden text-colors-slate">
           <div className="flex flex-col space-y-4">
             <Link 
               href="#home" 
