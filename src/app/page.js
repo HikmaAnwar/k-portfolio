@@ -27,7 +27,7 @@ export default function Home() {
 
       <div className="flex flex-col items-center w-full">
         <Intro title="I'm a Software Engineer." typingSpeed={50} />
-        <div className="flex flex-col items-center w-full max-w-screen-lg space-y-4 px-8 sm:px-20">
+        <div className="flex flex-col items-center w-full max-w-6xl space-y-4 px-6 sm:px-12">
           <About />
           <WorkExperience />
           <FeaturedProjects />

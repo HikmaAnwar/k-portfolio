@@ -6,7 +6,7 @@ const About = () => {
 
   return (
     <section id="about" className="w-full py-16">
-      <div className="max-w-4xl mx-auto space-y-12">
+      <div className="max-w-6xl mx-auto space-y-12">
         {/* Main Content */}
         <div className="text-left space-y-6">
           <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-8">

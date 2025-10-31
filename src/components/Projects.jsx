@@ -110,7 +110,7 @@ const Projects = () => {
               <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 {/* Project Mockup */}
                 <div className="relative order-2 lg:order-1 lg:-mr-14">
-                  <div className="relative z-10 rounded-2xl shadow-2xl p-4 min-h-[360px] bg-[#1b0f2a] border border-white/5">
+                  <div className="relative z-10 rounded-2xl shadow-2xl p-4 min-h-[360px] bg-[#1b0f2a] border border-white/5 lg:w-[105%]">
                     <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center">
                       {project.image ? (
                         <img src={project.image} alt={`${project.title} mockup`} className="w-full h-full object-contain" />
@@ -124,14 +124,14 @@ const Projects = () => {
                 {/* Project Description Card (overlaps mockup) */}
                 <div className="space-y-3 order-1 lg:order-2 lg:pl-8">
                   <h3
-                    className="text-3xl font-semibold pb-18 relative z-30 lg:-mt-10"
+                    className="text-3xl font-semibold pb-18 relative z-30 lg:-mt-10 text-right lg:pl-4"
                     style={{ color: '#A855F7' }}
                   >
                     {project.title}
                   </h3>
-                  <div className="relative lg:max-w-xl lg:w-[560px]">
+                  <div className="relative w-full lg:max-w-xl lg:w-[560px]">
                     <div
-                      className="rounded-2xl p-5 w-full border border-white/10 shadow-xl lg:-translate-x-16 lg:-translate-y-3 relative z-20 overflow-hidden"
+                      className="rounded-2xl p-5 w-full border border-white/10 shadow-xl lg:-translate-x-6 lg:-translate-y-1 relative z-20 overflow-hidden"
                       style={{ minHeight: '140px' }}
                     >
                       {/* background layer normal so the light edge stays on the left */}
@@ -150,7 +150,7 @@ const Projects = () => {
                     </div>
                     {/* Live Link Icon - positioned below card, aligned to right edge */}
                     {project.liveLink && (
-                      <div className="mt-3 flex justify-end lg:justify-end pr-16">
+                      <div className="mt-3 flex justify-end pr-16">
                         <a 
                           href={project.liveLink} 
                           target="_blank" 
