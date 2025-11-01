@@ -1,15 +1,21 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 
 const Projects = () => {
-  const projects = [
+  const [visibleProjects, setVisibleProjects] = useState(new Set());
+  const [currentImageIndex, setCurrentImageIndex] = useState({});
+
+  const projectRefs = useRef([]);
+
+  const projects = useMemo(() => [
     {
       id: 1,
       title: "E-Commerce Platform",
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🛒",
       image: "/window.svg",
+      images: ["/window.svg", "/next.svg", "/file.svg"], // Add multiple images here
       liveLink: "https://example.com"
     },
     {
@@ -18,6 +24,7 @@ const Projects = () => {
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🏥",
       image: "/next.svg",
+      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
       liveLink: "https://example.com"
     },
     {
@@ -26,24 +33,80 @@ const Projects = () => {
       description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
       mockup: "🏥",
       image: "/next.svg",
+      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
       liveLink: "https://example.com"
     }
 
-  ];
+  ], []);
+
+  useEffect(() => {
+    const observers = projectRefs.current.map((ref, index) => {
+      if (!ref) return null;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVisibleProjects((prev) => new Set([...prev, index]));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((obs) => obs && obs.disconnect());
+    };
+  }, []);
+
+  // Auto-slide images every 1 second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => {
+        const newIndex = { ...prev };
+        projects.forEach((project, projectIndex) => {
+          if (project.images && project.images.length > 1) {
+            const currentIndex = prev[projectIndex] || 0;
+            newIndex[projectIndex] = (currentIndex + 1) % project.images.length;
+          }
+        });
+        return newIndex;
+      });
+    }, 1000); // 1 second interval
+
+    return () => clearInterval(interval);
+  }, [projects]);
 
   return (
     <section id="projects" className="w-full py-16">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Section Title */}
         <div className="text-center">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4 text-left">
-            Projects
+          <h2 className="text-2xl lg:text-3xl font-semibold text-white mb-4 text-left">
+           Featured Projects
           </h2>
         </div>
 
         {/* Projects */}
-        {projects.map((project, index) => (
-          <div key={project.id} className="w-full">
+        {projects.map((project, index) => {
+          const isVisible = visibleProjects.has(index);
+          const slideFrom = index % 2 === 0 ? 'left' : 'right';
+          
+          return (
+          <div 
+            key={project.id} 
+            ref={(el) => (projectRefs.current[index] = el)}
+            className={`w-full transition-all duration-700 ease-out ${
+              isVisible 
+                ? `opacity-100 translate-x-0 scale-100` 
+                : `opacity-0 ${slideFrom === 'left' ? '-translate-x-12' : 'translate-x-12'} scale-95`
+            }`}
+          >
             {index % 2 === 0 ? (
               // Text on left (overlapping) , Mockup on right
               <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -95,8 +158,23 @@ const Projects = () => {
                 {/* Project Mockup */}
                 <div className="relative lg:-ml-4">
                   <div className="relative z-10 rounded-2xl shadow-2xl p-4 min-h-[360px] bg-[#1b0f2a] border border-white/5 lg:w-[110%] lg:-translate-x-2">
-                    <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center">
-                      {project.image ? (
+                    <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center relative">
+                      {project.images && project.images.length > 0 ? (
+                        project.images.map((img, imgIndex) => {
+                          const currentIndex = currentImageIndex[index] || 0;
+                          const isActive = imgIndex === currentIndex;
+                          return (
+                            <img 
+                              key={imgIndex}
+                              src={img} 
+                              alt={`${project.title} mockup ${imgIndex + 1}`} 
+                              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                                isActive ? 'opacity-100' : 'opacity-0'
+                              }`}
+                            />
+                          );
+                        })
+                      ) : project.image ? (
                         <img src={project.image} alt={`${project.title} mockup`} className="w-full h-full object-contain" />
                       ) : (
                         <div className="text-8xl">{project.mockup}</div>
@@ -111,8 +189,23 @@ const Projects = () => {
                 {/* Project Mockup */}
                 <div className="relative order-2 lg:order-1 lg:-mr-14">
                   <div className="relative z-10 rounded-2xl shadow-2xl p-4 min-h-[360px] bg-[#1b0f2a] border border-white/5 lg:w-[105%]">
-                    <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center">
-                      {project.image ? (
+                    <div className="bg-white rounded-xl overflow-hidden aspect-[16/10] w-full flex items-center justify-center relative">
+                      {project.images && project.images.length > 0 ? (
+                        project.images.map((img, imgIndex) => {
+                          const currentIndex = currentImageIndex[index] || 0;
+                          const isActive = imgIndex === currentIndex;
+                          return (
+                            <img 
+                              key={imgIndex}
+                              src={img} 
+                              alt={`${project.title} mockup ${imgIndex + 1}`} 
+                              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                                isActive ? 'opacity-100' : 'opacity-0'
+                              }`}
+                            />
+                          );
+                        })
+                      ) : project.image ? (
                         <img src={project.image} alt={`${project.title} mockup`} className="w-full h-full object-contain" />
                       ) : (
                         <div className="text-8xl">{project.mockup}</div>
@@ -169,7 +262,7 @@ const Projects = () => {
               </div>
             )}
           </div>
-        ))}
+        )})}
 
         {/* Additional Info */}
         <div className="text-center pt-8">

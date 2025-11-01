@@ -15,8 +15,8 @@ const WorkExperience = () => {
     <section id="experience" className="w-full py-16">
       <div className="max-w-6xl mx-auto">
         <FadeInSection>
-          <div className="section-header mb-4 text-left relative">
-            <span className="section-title text-3xl lg:text-4xl font-semibold text-white">
+          <div className="section-header mb-12 text-left relative">
+            <span className="section-title text-2xl lg:text-3xl  font-semibold text-white">
               Experience
             </span>
           </div>

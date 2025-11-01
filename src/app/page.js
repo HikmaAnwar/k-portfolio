@@ -26,12 +26,12 @@ export default function Home() {
       <NavBar />
 
       <div className="flex flex-col items-center w-full">
-        <Intro title="I'm a Software Engineer." typingSpeed={50} />
+        <Intro title="Hello! I'm Kirubel Gizaw." typingSpeed={50} />
         <div className="flex flex-col items-center w-full max-w-6xl space-y-4 px-6 sm:px-12">
           <About />
           <WorkExperience />
-          <FeaturedProjects />
           <Projects />
+          <FeaturedProjects />
           <Credits />
         </div>
       </div>

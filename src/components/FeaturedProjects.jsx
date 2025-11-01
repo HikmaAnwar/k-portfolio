@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import FadeInSection from './FadeInSection';
 
 const FeaturedProjects = () => {
   const projects = [
@@ -48,19 +49,22 @@ const FeaturedProjects = () => {
   return (
     <section id="featured-projects" className="w-full py-16">
       <div className="max-w-6xl mx-auto space-y-12">
-        <div className="text-left">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
-            Featured Projects
-          </h2>
-        </div>
-
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-            <div className="w-[520px] h-[520px] bg-[url('/assets/Gradient.svg')] bg-no-repeat bg-contain bg-center opacity-70"></div>
+        <FadeInSection delay="0ms">
+          <div className="text-left">
+            <h2 className="text-2xl lg:text-3xl font-semibold text-white mb-4">
+              Other Projects
+            </h2>
           </div>
+        </FadeInSection>
 
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+        <FadeInSection delay="100ms">
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+              <div className="w-[520px] h-[520px] bg-[url('/assets/Gradient.svg')] bg-no-repeat bg-contain bg-center opacity-70"></div>
+            </div>
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
               <div 
                 key={project.id}
                 className="relative group"
@@ -130,17 +134,18 @@ const FeaturedProjects = () => {
             ))}
           </div>
         </div>
+        </FadeInSection>
 
-        <div className="text-center pt-8">
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Each project represents a unique challenge and opportunity to create meaningful user experiences.
-          </p>
-        </div>
+        <FadeInSection delay="200ms">
+          <div className="text-center pt-8">
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Each project represents a unique challenge and opportunity to create meaningful user experiences.
+            </p>
+          </div>
+        </FadeInSection>
       </div>
     </section>
   );
 };
 
 export default FeaturedProjects;
-
-

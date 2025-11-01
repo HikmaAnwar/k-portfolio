@@ -1,32 +1,57 @@
 "use client";
 
 import React from 'react';
+import FadeInSection from './FadeInSection';
 
 const About = () => {
+  // Tech stack icons - update these paths to change the icons
+  // Top row: 7 icons
+  const topRowIcons = [
+    "/assets/Rectangle 2 (2).svg",
+    "/assets/Rectangle 9.svg",
+    "/assets/Rectangle 4.svg",
+    "/assets/Rectangle 6.svg",
+    "/assets/Go-Logo_LightBlue.svg",
+    "/assets/postgreesql.png",
+    "/assets/tech-icon-7.svg",
+  ];
+  
+  // Bottom row: 6 icons
+  const bottomRowIcons = [
+    "/assets/tech-icon-8.svg",
+    "/assets/tech-icon-9.svg",
+    "/assets/tech-icon-10.svg",
+    "/assets/tech-icon-11.svg",
+    "/assets/tech-icon-12.svg",
+    "/assets/tech-icon-13.svg",
+  ];
 
   return (
     <section id="about" className="w-full py-16">
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Main Content */}
-        <div className="text-left space-y-6">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-8">
-            About Me
-          </h2>
-          
-          <p className="text-xl text-gray-300 leading-relaxed">
-            I'm currently looking to join a product-focused team.
-          </p>
-          
-          <p className="text-lg text-gray-400 leading-relaxed">
-            With over 2 years of experience in UI/UX design and development, I specialize in creating 
-            user-centered digital experiences that bridge the gap between user needs and business objectives. 
-            My approach combines creative design thinking with technical implementation to deliver 
-            meaningful and delightful products.
-          </p>
-        </div>
+        <FadeInSection delay="0ms">
+          <div className="text-left space-y-6">
+            <h2 className="text-2xl lg:text-3xl font-semibold text-white mb-8">
+              About Me
+            </h2>
+            
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Starting my journey as a full stack developer and evolving into a Lead Backend Developer with 5+ years of hands-on experience in building robust, scalable systems.
+            </p>
+            
+            <p className="text-lg text-gray-400 leading-relaxed">
+              I specialize in designing scalable backend architectures, RESTful APIs, and efficient database systems. 
+              My expertise includes building high-performance applications, optimizing system performance, and leading technical initiatives. 
+              Currently leading backend development at Matrix Technology PLC, I focus on architecting systems that handle complex business logic 
+              while maintaining code quality and performance standards.
+            </p>
+          </div>
+        </FadeInSection>
 
         {/* Contact Information Section */}
-        <div className="space-y-6">
+        <FadeInSection delay="100ms">
+          <div className="space-y-6">
           <div className="space-y-4">
             {/* Phone Numbers */}
             <div className="flex items-start space-x-4">
@@ -64,7 +89,7 @@ const About = () => {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
                 />
               </svg>
-              <span className="text-white">kirubhel27@gmail.com</span>
+              <span className="text-white">kirub.hel@gmail.com</span>
             </div>
           </div>
 
@@ -87,43 +112,83 @@ const About = () => {
               Contact Me
             </a>
             <a 
-              href="/resume.pdf"
-              download
+              href="/assets/kirubel-Gizaw-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 bg-purple-500 text-white rounded-lg font-medium hover:bg-purple-600 transition-colors duration-200 text-center"
             >
-              Download Resume
+              Download CV
             </a>
           </div>
         </div>
+        </FadeInSection>
 
         {/* Tech Stack Image */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-semibold text-white text-center">
+        <FadeInSection delay="200ms">
+          <div className="space-y-8">
+          <h3 className="text-2xl font-semibold text-white text-left mt-12 pt-8">
             Technologies & Tools
           </h3>
           
-          <div className="flex justify-center">
+          {/* Dynamic Tech Stack Icon Circles - 7 on top, 6 below */}
+          <div className="flex flex-col items-center gap-6 -mb-8 relative z-10">
+            {/* Top Row - 7 circles */}
+            <div className="flex justify-center gap-2 sm:gap-3 flex-nowrap">
+              {topRowIcons.map((icon, index) => (
+                <div 
+                  key={`top-${index}`}
+                  className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-800 border-2 border-purple-400/30 flex items-center justify-center shadow-lg shadow-purple-500/20 overflow-hidden hover:border-purple-400/60 transition-colors flex-shrink-0"
+                >
+                  <img 
+                    src={icon} 
+                    alt={`Tech Stack Icon ${index + 1}`} 
+                    className="w-9 h-9 sm:w-10 sm:h-10 object-contain p-1"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom Row - 6 circles */}
+            <div className="flex justify-center gap-2 sm:gap-3 flex-nowrap">
+              {bottomRowIcons.map((icon, index) => (
+                <div 
+                  key={`bottom-${index}`}
+                  className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-800 border-2 border-purple-400/30 flex items-center justify-center shadow-lg shadow-purple-500/20 overflow-hidden hover:border-purple-400/60 transition-colors flex-shrink-0"
+                >
+                  <img 
+                    src={icon} 
+                    alt={`Tech Stack Icon ${index + 8}`} 
+                    className="w-9 h-9 sm:w-10 sm:h-10 object-contain p-1"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex justify-center -mt-8">
             <div className="relative">
               <img 
-                src="/assets/tech_stack.svg" 
+                src="/assets/Group 1939 (1).svg" 
                 alt="Technology Stack" 
                 className="max-w-full h-auto rounded-lg shadow-lg"
               />
-              {/* Optional glow effect */}
-              <div className="absolute inset-0 bg-purple-500/5 rounded-lg blur-xl"></div>
+           
+               
             </div>
           </div>
         </div>
+        </FadeInSection>
 
         {/* Additional Info */}
-        <div className="text-center space-y-4">
+        <FadeInSection delay="300ms">
+          <div className="text-center space-y-4">
           <p className="text-lg text-gray-300">
-            I'm passionate about creating intuitive user interfaces and seamless user experiences.
+            I thrive on solving complex technical challenges and turning business requirements into performant, maintainable code solutions.
           </p>
           
           <div className="flex justify-center space-x-6">
             <div className="text-center">
-              <div className="text-2xl font-bold text-purple-400">2+</div>
+              <div className="text-2xl font-bold text-purple-400">4+</div>
               <div className="text-sm text-gray-400">Years Experience</div>
             </div>
             <div className="text-center">
@@ -136,6 +201,7 @@ const About = () => {
             </div>
           </div>
         </div>
+        </FadeInSection>
       </div>
     </section>
   );
