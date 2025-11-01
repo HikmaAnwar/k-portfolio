@@ -2,7 +2,6 @@
 
 import React from 'react';
 import FadeInSection from './FadeInSection';
-import { Target } from '@mynaui/icons-react';
 
 const FeaturedProjects = () => {
   const projects = [
