@@ -11,30 +11,60 @@ const Projects = () => {
   const projects = useMemo(() => [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
+      title: "DDWS",
+      description: "A Project Management System encompasses a suite of tools and methodologies devised to strategize, coordinate, supervise, and monitor the evolution of a project from inception to culmination. Developed using Angular and ASP.NET Core, also with a mobile app using Flutter.",
       mockup: "🛒",
       image: "/window.svg",
       images: ["/window.svg", "/next.svg", "/file.svg"], // Add multiple images here
-      liveLink: "https://example.com"
+      // liveLink: "https://example.com"
     },
     {
       id: 2,
-      title: "Healthcare Management System",
-      description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
+      title: "Membership Management System",
+      description: "A membership management system for the Ethiopian Midwives Association (EMwA), facilitating membership administration. Developed using Angular and ASP.NET Core. For the Chapa integration, I utilized a Node.js API to communicate with the Angular frontend and the Chapa site.",
       mockup: "🏥",
       image: "/next.svg",
       images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
-      liveLink: "https://example.com"
+      liveLink: "https://emwamms.org/board-member-dashboard"
     },
     {
       id: 3,
-      title: "Healthcare Management System",
-      description: "In web app for a leading organization from Dubai. Here, I was responsible for product discovery, user research, user flows, wireframes, prototypes, usability testing, and UI design. I also worked closely with the client, product, and development teams to ensure that the product met user needs and business goals.",
+      title: "Case Tracking",
+      description: "There are two different kinds of cases, Inside cases (which helps to manage the issues that arise inside the bureau such leave request and so on) and outside cases (which helps to handle the issues of the clients of the bureau) (which helps to manage the issues of the clients of the bureau). Developed using Angular and ASP.NET Core, also with a mobile app using Kotlin.",
       mockup: "🏥",
       image: "/next.svg",
       images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
-      liveLink: "https://example.com"
+      // liveLink: "https://example.com"
+    },
+    {
+      id: 4,
+      title: "ERP SYSTEM",
+      description: "An ERP SYSTEM which contains Project Management, HRM, Finance, and Inventory modules. Developed using Angular and ASP.NET Core.",
+      mockup: "🏥",
+      image: "/next.svg",
+      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+     liveLink: "https://emwaerp.com/"
+
+    },
+    {
+      id: 5,
+      title: "Fasil Kenema App",
+      description: "The Fasil Kenema App is a comprehensive mobile application designed to provide fans and supporters of Fasil Kenema Football Club with easy access to the latest news, match scores, and ticket purchasing capabilities.",
+      mockup: "🏥",
+      image: "/next.svg",
+      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+    //  liveLink: "https://emwaerp.com/"
+
+    },
+    {
+      id: 6,
+      title: "DIRE DAWA water...",
+      description: "The Fasil Kenema App is a comprehensive mobile application designed to provide fans and supporters of Fasil Kenema Football Club with easy access to the latest news, match scores, and ticket purchasing capabilities.",
+      mockup: "🏥",
+      image: "/next.svg",
+      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+    //  liveLink: "https://emwaerp.com/"
+
     }
 
   ], []);
@@ -77,7 +107,7 @@ const Projects = () => {
         });
         return newIndex;
       });
-    }, 1000); // 1 second interval
+    }, 3000); // 3 second interval
 
     return () => clearInterval(interval);
   }, [projects]);

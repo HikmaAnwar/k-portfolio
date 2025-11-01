@@ -2,40 +2,42 @@
 
 import React from 'react';
 import FadeInSection from './FadeInSection';
+import { Target } from '@mynaui/icons-react';
 
 const FeaturedProjects = () => {
   const projects = [
     {
       id: 1,
       icon: '🏆',
-      title: 'UI/UX on the Mobile',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      deployed: '#',
-      github: '#'
+      title: 'Crave Addis',
+      description: 'The Crave Addis website showcases stunning visuals of its interior and signature dishes, complemented by clear CTAs for menu exploration and reservations. It also includes an (About Us) section with a backstory, mission, team bios, and community involvement details, along with a menu featuring easy navigation, enticing dish descriptions, and options for various dietary preferences.',
+      deployed: 'https://craveaddis.com/',
+      github: 'https://github.com/kirubhel'
     },
     {
       id: 2,
       icon: '🟠',
-      title: 'UI/UX on the Web',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      deployed: '#',
-      github: '#'
+      title: 'Ethio Wonder Tours',
+      description: 'The Ethio Wonder Tours website offers captivating visuals and clear navigation for exploring Ethiopian travel experiences, featuring detailed tour packages, customizable itineraries, and an (About Us) section highlighting the companys mission and team.',
+      deployed: 'https://ethiowondertours.com/',
+      github: 'https://github.com/kirubhel'
     },
     {
       id: 3,
       icon: '🔷',
-      title: 'UI/UX on the Desktop',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      deployed: '#',
-      github: '#'
+      title: 'Ethio Planet Award',
+      description: 'The Ethio Planet Awards website celebrates technological innovation in Ethiopia, showcasing nominees and winners while providing clear navigation for exploring award categories, criteria, and past recipients.',
+    
+      deployed: 'https://ethioplanetaward.com/',
+      github: 'https://github.com/kirubhel'
     },
     {
       id: 4,
       icon: '🟣',
-      title: 'UI/UX on the Tablet',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      deployed: '#',
-      github: '#'
+      title: 'Glroy Realestate',
+      description: 'The Glroy Real Estate website presents a comprehensive platform for real estate services, offering intuitive navigation to browse property listings, filter options, and schedule viewings.',
+      deployed: 'https://gloryrealestateplc.com/',
+      github: 'https://github.com/kirubhel'
     }
   ];
 
@@ -70,7 +72,7 @@ const FeaturedProjects = () => {
                 className="relative group"
               >
               <div
-                className="relative rounded-[10px] p-4 transition-transform duration-300 hover:scale-[1.01]"
+                className="relative rounded-[10px] p-4 transition-transform duration-300 hover:scale-[1.01] h-[200px] flex flex-col"
                 style={{
                   backgroundImage: `url(${cardBackgrounds[index]})`,
                   backgroundSize: 'cover',
@@ -83,15 +85,15 @@ const FeaturedProjects = () => {
                   borderBottom: '1px solid rgba(192, 132, 252, 0.25)'
                 }}
               >
-                <div className="relative z-10">
-                  <div className="w-full">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-full flex-1 flex flex-col">
+                    <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300 mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300/90 leading-snug mt-1 pb-2">
+                    <p className="text-gray-300/90 leading-snug flex-1 overflow-hidden text-sm line-clamp-2">
                       {project.description}
                     </p>
-                    <div className="pt-3 flex items-center gap-3">
+                    <div className="pt-3 flex items-center gap-3 mt-auto">
                     <a
                       href={project.deployed}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-purple-300/40 text-purple-100 text-sm hover:border-purple-300 hover:bg-purple-500/10 transition-colors duration-300"
