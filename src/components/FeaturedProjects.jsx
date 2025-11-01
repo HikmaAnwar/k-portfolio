@@ -62,7 +62,7 @@ const FeaturedProjects = () => {
         <FadeInSection delay="100ms">
           <div className="relative">
             <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-              <div className="w-[520px] h-[520px] bg-[url('/assets/Gradient.svg')] bg-no-repeat bg-contain bg-center opacity-70"></div>
+              <div className="w-[520px] h-[520px] bg-[url('/assets/Gradient.svg')] bg-no-repeat bg-contain bg-center opacity-70 border-none shadow-none"></div>
             </div>
 
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -75,13 +75,13 @@ const NavBar = () => {
           Experience
         </Link>
         <Link 
-          href="#featured-projects" 
+          href="#projects" 
           className={`${linkBase} ${activeSection === "featured-projects" ? linkActive : linkIdle}`}
         >
           Featured
         </Link>
         <Link 
-          href="#projects" 
+          href="#featured-projects" 
           className={`${linkBase} ${activeSection === "projects" ? linkActive : linkIdle}`}
         >
           Projects
@@ -138,7 +138,7 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-                 <div className="absolute top-full left-0 right-0 bg-colors-dark backdrop-blur-sm bg-opacity-100 px-6 py-4 shadow-lg md:hidden text-colors-slate">
+                 <div className="absolute top-full left-0 right-0 backdrop-blur-sm px-6 py-4 shadow-lg md:hidden text-colors-slate" style={{ backgroundColor: '#0e0a13' }}>
           <div className="flex flex-col space-y-4">
             <Link 
               href="#home" 

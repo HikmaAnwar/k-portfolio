@@ -11,11 +11,11 @@ const Projects = () => {
   const projects = useMemo(() => [
     {
       id: 1,
-      title: "DDWS",
+      title: "Project Management System",
       description: "A Project Management System encompasses a suite of tools and methodologies devised to strategize, coordinate, supervise, and monitor the evolution of a project from inception to culmination. Developed using Angular and ASP.NET Core, also with a mobile app using Flutter.",
       mockup: "🛒",
-      image: "/window.svg",
-      images: ["/window.svg", "/next.svg", "/file.svg"], // Add multiple images here
+      image: "/assets/DD1.png",
+      images: [ "/assets/DDS2.png", "/assets/DDS3.png","/assets/DDS4.png","/assets/DDS5.png","/assets/DDS6.png","/assets/DDS7.png","/assets/DDS7.png"]
       // liveLink: "https://example.com"
     },
     {
@@ -23,8 +23,8 @@ const Projects = () => {
       title: "Membership Management System",
       description: "A membership management system for the Ethiopian Midwives Association (EMwA), facilitating membership administration. Developed using Angular and ASP.NET Core. For the Chapa integration, I utilized a Node.js API to communicate with the Angular frontend and the Chapa site.",
       mockup: "🏥",
-      image: "/next.svg",
-      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+      image: "/assets/mid1.png",
+      images: [ "/assets/mid2.png", "/assets/mid3.png","/assets/mid4.png","/assets/mid5.png","/assets/mid6.png","/assets/mid7.png","/assets/mid8.png"], // Add multiple images here
       liveLink: "https://emwamms.org/board-member-dashboard"
     },
     {
@@ -32,8 +32,8 @@ const Projects = () => {
       title: "Case Tracking",
       description: "There are two different kinds of cases, Inside cases (which helps to manage the issues that arise inside the bureau such leave request and so on) and outside cases (which helps to handle the issues of the clients of the bureau) (which helps to manage the issues of the clients of the bureau). Developed using Angular and ASP.NET Core, also with a mobile app using Kotlin.",
       mockup: "🏥",
-      image: "/next.svg",
-      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+      image: "/assets/case1.png",
+      images: ["/assets/case2.png", "/assets/case3.png", "/assets/case4.png", "/assets/case5.png", "/assets/case6.png"], // Add multiple images here
       // liveLink: "https://example.com"
     },
     {
@@ -41,8 +41,8 @@ const Projects = () => {
       title: "ERP SYSTEM",
       description: "An ERP SYSTEM which contains Project Management, HRM, Finance, and Inventory modules. Developed using Angular and ASP.NET Core.",
       mockup: "🏥",
-      image: "/next.svg",
-      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+      image: "/assets/ERP1.png",
+      images: ["/assets/ERP2.png", "/assets/ERP3.png", "/assets/ERP4.png", "/assets/ERP5.png"], // Add multiple images here
      liveLink: "https://emwaerp.com/"
 
     },
@@ -51,18 +51,18 @@ const Projects = () => {
       title: "Fasil Kenema App",
       description: "The Fasil Kenema App is a comprehensive mobile application designed to provide fans and supporters of Fasil Kenema Football Club with easy access to the latest news, match scores, and ticket purchasing capabilities.",
       mockup: "🏥",
-      image: "/next.svg",
-      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+      image: "/assets/fasil1.jpg",
+      images: ["/assets/fasil2.jpg", "/assets/fasil3.jpg", "/assets/fasil4.jpg","/assets/fasil5.jpg","/assets/fasil6.jpg","/assets/fasil7.jpg"], // Add multiple images here
     //  liveLink: "https://emwaerp.com/"
 
     },
     {
       id: 6,
-      title: "DIRE DAWA water...",
+      title: "DDWS Mobile APP",
       description: "The Fasil Kenema App is a comprehensive mobile application designed to provide fans and supporters of Fasil Kenema Football Club with easy access to the latest news, match scores, and ticket purchasing capabilities.",
       mockup: "🏥",
-      image: "/next.svg",
-      images: ["/next.svg", "/window.svg", "/file.svg"], // Add multiple images here
+      image: "/assets/DMOBILE.png",
+      images: ["/assets/DMOBILE2.png", "/assets/DMOBILE3.png", "/assets/DMOBILE4.png","/assets/DMOBILE5.png","/assets/DMOBILE6.png","/assets/DMOBILE7.png","/assets/DMOBILE8.png"], // Add multiple images here
     //  liveLink: "https://emwaerp.com/"
 
     }

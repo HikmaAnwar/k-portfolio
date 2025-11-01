@@ -48,7 +48,7 @@ const Credits = () => {
           <div>
             Built and designed by
             <Link
-              href="https://github.com/kirubhel"
+              href="https://github.com/HikmaAnwar"
               className="ml-2 hover:text-colors-greenBright"
             >
               Hikma A.Tsegaye.
